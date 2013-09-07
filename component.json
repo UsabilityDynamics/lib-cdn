@@ -1,26 +1,23 @@
 {
-  "name": "{{name}}",
+  "name": "cdn",
   "version": "0.0.1",
-  "description": "{{description}}",
-  "homepage": "http://github.com/UsabilityDynamics/{{name}}",
+  "description": "Component library for interfacing with CDN providers. ",
+  "homepage": "http://github.com/UsabilityDynamics/lib-cdn",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/UsabilityDynamics/{{name}}"
+    "url": "https://github.com/UsabilityDynamics/lib-cdn"
   },
   "dependencies": {
     "usabilitydynamics/lib-utility": "*"
   },  
   "templates": [],
-  "files": [
-    "files/{{name}}-schema.json"
-  ],
-  "styles": [
-    "styles/{{name}}.css"
-  ],
+  "fonts": [],
+  "images": [],
+  "files": [],
   "scripts": [
-    "scripts/{{name}}.js",
-    "scripts/{{name}}.php"
+    "scripts/cdn.js",
+    "scripts/cdn.php"
   ],
   "authors": [
     {

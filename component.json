@@ -16,7 +16,7 @@
     "files/schema/azure.json",
     "files/schema/s3.json"
   ],
-  "lib": [ "lib/cdn.php" ],
+  "libs": [ "lib/cdn.php" ],
   "scripts": [ "scripts/cdn.js" ],
   "authors": [
     {

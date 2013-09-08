@@ -1,7 +1,7 @@
 {
   "name": "cdn",
   "version": "0.0.1",
-  "description": "Component library for interfacing with CDN providers. ",
+  "description": "Component library for interfacing with CDN providers.",
   "homepage": "http://github.com/UsabilityDynamics/lib-cdn",
   "private": false,
   "repository": {
@@ -9,16 +9,15 @@
     "url": "https://github.com/UsabilityDynamics/lib-cdn"
   },
   "dependencies": {
-    "usabilitydynamics/lib-utility": "*"
+    "usabilitydynamics/lib-utility": "*",
+    "component/s3": "*"
   },  
-  "templates": [],
-  "fonts": [],
-  "images": [],
-  "files": [],
-  "scripts": [
-    "scripts/cdn.js",
-    "scripts/cdn.php"
+  "files": [
+    "files/schema/azure.json",
+    "files/schema/s3.json"
   ],
+  "lib": [ "lib/cdn.php" ],
+  "scripts": [ "scripts/cdn.js" ],
   "authors": [
     {
       "name": "Andy Potanin",

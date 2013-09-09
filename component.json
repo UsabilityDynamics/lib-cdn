@@ -12,12 +12,16 @@
     "usabilitydynamics/lib-utility": "*",
     "component/s3": "*"
   },  
-  "files": [
-    "files/schema/azure.json",
-    "files/schema/s3.json"
+  "schemas": [
+    "schemas/azure.json",
+    "schemas/s3.json"
   ],
-  "libs": [ "lib/cdn.php" ],
-  "scripts": [ "scripts/cdn.js" ],
+  "libs": [
+    "libs/cdn.php"
+  ],
+  "scripts": [
+    "scripts/cdn.js"
+  ],
   "authors": [
     {
       "name": "Andy Potanin",

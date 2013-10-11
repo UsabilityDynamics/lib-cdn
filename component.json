@@ -16,8 +16,8 @@
     "schemas/azure.json",
     "schemas/s3.json"
   ],
-  "libs": [
-    "libs/cdn.php"
+  "lib": [
+    "lib/cdn.php"
   ],
   "scripts": [
     "scripts/cdn.js"

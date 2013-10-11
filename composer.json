@@ -13,9 +13,9 @@
     }
   ],
   "autoload": {
-    "UsabilityDynamics": "libs/",
+    "UsabilityDynamics": "lib/",
     "files": [
-      "libs/cdn.php"
+      "lib/cdn.php"
     ]
   },
   "homepage": "http://github.com/usabilitydynamics/lib-cdn",

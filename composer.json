@@ -3,17 +3,17 @@
   "keywords": [ "api" ],
   "type": "library",
   "require": {
-    "usabilitydynamics/lib-utility": "*"
+    "usabilitydynamics/lib-utility": "*",
+    "google/api-php-client": "0.6.7"
   },
   "minimum-stability": "dev",
   "repositories": [
     {
-      "type": "vcs",
-      "url": "https://github.com/UsabilityDynamics/lib-utility"
+      "type": "composer",
+      "url": "http://repository.usabilitydynamics.com"
     }
   ],
   "autoload": {
-    "UsabilityDynamics": "lib/",
     "files": [
       "lib/cdn.php"
     ]

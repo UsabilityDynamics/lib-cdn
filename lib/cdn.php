@@ -32,42 +32,61 @@ namespace UsabilityDynamics {
        */
       public static $version = '0.0.3';
 
-      public function __construct() {
+      /**
+       * Google Client Instance.
+       *
+       * @public
+       * @static
+       * @property $_storage
+       * @type {Object}
+       */
+      public $_client = null;
 
-        $this->client  = new \GoogleApi\Google_Client();
-        //$this->service = new \GoogleApi\Books\Service( $client );
+      /**
+       * Storage Service Instance.
+       *
+       * @public
+       * @static
+       * @property $_storage
+       * @type {Object}
+       */
+      public $_storage = null;
 
-        $optParams = array( 'filter' => 'free-ebooks' );
-        $results   = $service->volumes->listVolumes( 'Henry David Thoreau', $optParams );
+      /**
+       * Instantiate.
+       *
+       * @param {object|array} $settings Cofiguration.
+       * @param {string} $settings.account
+       * @param {string} $settings.key
+       * @param {string} $settings.scopes
+       */
+      public function __construct( $settings ) {
 
-        foreach( $results[ 'items' ] as $item ) {
-          print( $item[ 'volumeInfo' ][ 'title' ] . '<br>' );
-        }
+        // Normalize Settings.
+        $this->settings = (object) $settings;
+
+        // Instantiate Google Client.
+        $this->_client  = new \Google_Client();
+
+        // I don't know what this does.
+        $this->_client->setUseObjects( true );
+
+        // Set Service Credentials.
+        $this->_client->setAssertionCredentials( new \Google_AssertionCredentials( $this->settings->account, (array) $this->settings->scopes, $this->settings->key ) );
+
+        // Google Storage.
+        $this->_storage = new \Google_StorageService( $this->_client );
 
       }
 
-      function service() {
+      /**
+       * @param {String} $name
+       *
+       * @return \Google_Objects
+       */
+      function get_bucket( $name ) {
 
-        require_once 'google-api-php-client/src/Google_Client.php';
-        require_once 'google-api-php-client/src/contrib/Google_StorageService.php';
-        require_once "google-api-php-client/src/contrib/Google_Oauth2Service.php";
-
-        $client = new Google_Client();
-        $client->setUseObjects( true );
-        $client->setAssertionCredentials( new Google_AssertionCredentials(
-            '541786531381-6fv12akl1og7v4vqquv8eko65jgbq18v@developer.gserviceaccount.com',
-            array(
-              'https://www.googleapis.com/auth/devstorage.full_control',
-              'https://www.googleapis.com/auth/drive'
-            ),
-            file_get_contents( 'fae9347852cba45695fb5c686a47d8a10fb9d326-privatekey.p12' ) )
-        );
-
-        $storageService = new Google_StorageService( $client );
-
-        echo "<pre>";
-        print_r( $storageService->objects->listObjects( 'media.usabilitydynamics.com' ) );
-        die();
+        return $this->_storage->objects->listObjects( $name );
 
       }
     }

@@ -1,6 +1,6 @@
 {
   "name": "usabilitydynamics/lib-cdn",
-  "keywords": [ "api" ],
+  "keywords": [ "cdn", "gce" ],
   "type": "library",
   "require": {
     "usabilitydynamics/lib-utility": "*",
@@ -14,9 +14,21 @@
     }
   ],
   "autoload": {
-    "files": [
-      "lib/cdn.php"
+    "classmap": [
+      "lib/class-cdn.php",
+      "lib/class-gcs.php"
     ]
+  },
+  "extra": {
+    "component": {
+      "schemas": [
+        "schemas/azure.json",
+        "schemas/s3.json"
+      ],
+      "scripts": [
+        "scripts/cdn.js"
+      ]
+    }
   },
   "homepage": "http://github.com/usabilitydynamics/lib-cdn",
   "authors": [

@@ -1,6 +1,8 @@
 <?php
 /**
- * CDN Functionality
+ * CDN Class
+ *
+ * Should be extended by platform-specific CDN classes.
  *
  * @user potanin@UD
  *
@@ -62,33 +64,8 @@ namespace UsabilityDynamics {
        */
       public function __construct( $settings ) {
 
-        // Normalize Settings.
-        $this->settings = (object) $settings;
-
-        // Instantiate Google Client.
-        $this->_client  = new \Google_Client();
-
-        // I don't know what this does.
-        $this->_client->setUseObjects( true );
-
-        // Set Service Credentials.
-        $this->_client->setAssertionCredentials( new \Google_AssertionCredentials( $this->settings->account, (array) $this->settings->scopes, $this->settings->key ) );
-
-        // Google Storage.
-        $this->_storage = new \Google_StorageService( $this->_client );
-
       }
 
-      /**
-       * @param {String} $name
-       *
-       * @return \Google_Objects
-       */
-      function get_bucket( $name ) {
-
-        return $this->_storage->objects->listObjects( $name );
-
-      }
     }
   }
 
